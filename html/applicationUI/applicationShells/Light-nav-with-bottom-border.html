@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+
+<head>
+  <title>TailwindCode</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="../../../css/output.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    .resizer {
+      transition: all 0.25s ease-out;
+      max-height: 100vh;
+      overflow: hidden;
+    }
+
+    .resizer.shrink {
+      transition: all 0.25s ease-in;
+      max-height: 0px;
+    }
+  </style>
+</head>
+
+<body class="h-full">
+  <div class="min-h-full flex flex-col">
+    <nav class="bg-white border-b">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                alt="North By" />
+            </div>
+            <div class="hidden md:block">
+              <div class="text-gray-500 text-sm font-medium ml-10 space-x-7 flex items-stretch -mb-1">
+                <a class="text-gray-800  border-b-2 border-indigo-500 px-1 py-5" href="#">Dashboard</a>
+                <a class="hover:text-gray-800 border-b-2 border-transparent hover:border-gray-300 px-1 py-5" href="#">Team</a>
+                <a class="hover:text-gray-800 border-b-2 border-transparent hover:border-gray-300 px-1 py-5" href="#">Projects</a>
+                <a class="hover:text-gray-800 border-b-2 border-transparent hover:border-gray-300 px-1 py-5" href="#">Calendar</a>
+                <a class="hover:text-gray-800 border-b-2 border-transparent hover:border-gray-300 px-1 py-5" href="#">Reports</a>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="flex items-center ml-4">
+              <button type="button"
+                class="relative flex items-center p-1 rounded-full text-gray-400 hover:text-gray-700 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">View notifications</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0">
+                  </path>
+                </svg>
+              </button>
+              <div class="relative ml-3">
+
+                <button
+                  class="relative flex items-center max-w-xs rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white"
+                  id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="absolute -inset-1.5"></span>
+                  <span class="sr-only">Open user menu</span>
+                  <img class="w-8 h-8 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="your name" />
+                </button>
+
+
+                <!--
+                Dropdown menu, show/hide based on menu state.
+
+                Entering: "transition ease-out duration-100"
+                  From: "transform opacity-0 scale-95"
+                  To: "transform opacity-100 scale-100"
+                Leaving: "transition ease-in duration-75"
+                  From: "transform opacity-100 scale-100"
+                  To: "transform opacity-0 scale-95"
+              -->
+                <div
+                  class=" hidden absolute right-0 origin-top-right mt-2 z-10  w-48 text-gray-700 bg-white rounded-md shadow-lg text-sm font-medium py-1 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  id="dropdown-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                  tabindex="-1" data-entering="transition ease-out duration-100"
+                  data-enter-from="transform opacity-0 scale-95" data-opening="transform opacity-100 scale-100"
+                  data-leaving="transition ease-in duration-75" data-leave-to="transform opacity-0 scale-95">
+                  <a class="block py-2 px-4 hover:bg-gray-100" href="#" role="menuitem" tabindex="-1"
+                    id="user-menu-item-0">Your Profile</a>
+                  <a class="block py-2 px-4 hover:bg-gray-100" href="#" role="menuitem" tabindex="-1"
+                    id="user-menu-item-0">Settings</a>
+                  <a class="block py-2 px-4 hover:bg-gray-100" href="#" role="menuitem" tabindex="-1"
+                    id="user-menu-item-0">Sign out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="-mr-2 flex md:hidden">
+            <button type="button" id="navbar-burger" data-open="false"
+              class="relative inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-indigo-50 hover:text-gray-600 border-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <!-- Menu open: "hidden", Menu closed: "block" -->
+              <svg class="h-6 w-6" id="navbar-menu" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <!-- Menu open: "block", Menu closed: "hidden" -->
+              <svg class="hidden h-6 w-6" id="navbar-close" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="resizer shrink md:hidden" id="mobile-menu">
+        <div class="space-y-1 pb-3 pt-2">
+          <a class="block text-base font-medium text-gray-800 bg-indigo-50 px-3 py-2 border-l-4 border-indigo-500"
+            href="#">Dashboard</a>
+          <a class="block text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-800 border-l-4 border-transparent hover:border-gray-300 px-3 py-2"
+            href="#">Team</a>
+          <a class="block text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-800 border-l-4 border-transparent hover:border-gray-300  px-3 py-2 "
+            href="#">Projects</a>
+          <a class="block text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-800 border-l-4 border-transparent hover:border-gray-300  px-3 py-2"
+            href="#">Calendar</a>
+          <a class="block text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-800 border-l-4 border-transparent hover:border-gray-300  px-3 py-2"
+            href="#">Reports</a>
+        </div>
+
+        <div class="pt-4 pb-3 border-t border-gray-200">
+          <div class="px-5  sm:px-6 flex gap-3 items-center">
+            <img class="w-10 h-10 rounded-full brightness-90"
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt="your name" />
+            <div class="flex-grow space-y-1">
+              <div class="text-base font-medium leading-none text-gray-600">
+                Tom Cook
+              </div>
+              <div class="text-sm font-medium leading-none text-gray-500">
+                tom@example.com
+              </div>
+            </div>
+            <div class="-mr-2 flex-shrink-0">
+              <button type="button"
+                class="relative p-1 rounded-full text-gray-600 hover:text-gray-900 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white">
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">View notifications</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0">
+                  </path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="text-gray-600 font-medium text-base mt-3 space-y-1">
+            <a href="#" class="block hover:text-gray-700 hover:bg-gray-100 py-2 px-3 ">Your Profile</a>
+            <a href="#" class="block hover:text-gray-700 hover:bg-gray-100  py-2 px-3 ">Settings</a>
+            <a href="#" class="block hover:text-gray-700 hover:bg-gray-100  py-2 px-3 ">Sing out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="bg-white shadow">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Dashboard</h1>
+      </div>
+    </header>
+    <main class="flex-grow">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div class="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
+          <svg class="absolute inset-0 h-full w-full stroke-gray-900/10" fill="none">
+            <defs>
+              <pattern id="pattern-d09edaee-fc6a-4f25-aca5-bf9f5f77e14a" x="0" y="0" width="10" height="10"
+                patternUnits="userSpaceOnUse">
+                <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
+              </pattern>
+            </defs>
+            <rect stroke="none" fill="url(#pattern-d09edaee-fc6a-4f25-aca5-bf9f5f77e14a)" width="100%" height="100%">
+            </rect>
+          </svg>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navbarBurger = document.querySelector("#navbar-burger"),
+        navbarMenu = document.querySelector("#navbar-menu"),
+        navbarClose = document.querySelector("#navbar-close"),
+        mobileMenu = document.querySelector("#mobile-menu");
+      let number = undefined;
+      navbarBurger.addEventListener("click", () => {
+        navbarMenu.classList.toggle("hidden");
+        navbarClose.classList.toggle("hidden");
+        mobileMenu.classList.toggle("shrink");
+        navbarBurger.dataset.open = (!JSON.parse(
+          navbarBurger.dataset.open
+        )).toString();
+        // if (JSON.parse(navbarBurger.dataset.open)) {
+        //   mobileMenu.classList.remove("hidden");
+        //   mobileMenu.classList.remove("animate__fadeOut");
+        // } else {
+        //   mobileMenu.classList.add("animate__fadeOut");
+        //   clearTimeout(number);
+        //   number = setTimeout(() => {
+        //     mobileMenu.classList.add("hidden");
+        //   }, 1000);
+        // }
+      });
+
+      const userMenuButton = document.querySelector("#user-menu-button"),
+        dropdownMenu = document.querySelector("#dropdown-menu");
+      let expanded = JSON.parse(userMenuButton.getAttribute("aria-expanded"));
+      userMenuButton.addEventListener("click", function () {
+        expanded = !expanded
+        this.setAttribute("aria-expanded", expanded.toString());
+        if (expanded) {
+          // 显示下拉菜单，并添加动画类
+          dropdownMenu.style.display = 'block';
+          dropdownMenu.classList.remove(...dropdownMenu.dataset.leaving.split(' '));
+          dropdownMenu.classList.add(...dropdownMenu.dataset.entering.split(' '));
+          dropdownMenu.classList.add(...dropdownMenu.dataset.enterFrom.split(' '));
+
+          setTimeout(function () {
+            dropdownMenu.classList.remove(...dropdownMenu.dataset.enterFrom.split(' '));
+            dropdownMenu.classList.add(...dropdownMenu.dataset.opening.split(' '));
+          }, 0); // 延迟设置动画类以避免初始状态的闪烁
+        } else {
+          // 隐藏下拉菜单，并添加动画类
+          dropdownMenu.classList.remove(...dropdownMenu.dataset.entering.split(' '));
+          dropdownMenu.classList.add(...dropdownMenu.dataset.leaving.split(' '));
+          dropdownMenu.classList.remove(...dropdownMenu.dataset.opening.split(' '));
+          dropdownMenu.classList.add(...dropdownMenu.dataset.leaveTo.split(' '));
+          setTimeout(function () {
+            dropdownMenu.style.display = 'none';
+            dropdownMenu.classList.remove(...dropdownMenu.dataset.leaveTo.split(' '));
+          }, 75); // 等待动画完成
+        }
+
+      });
+    });
+  </script>
+</body>
+
+</html>
